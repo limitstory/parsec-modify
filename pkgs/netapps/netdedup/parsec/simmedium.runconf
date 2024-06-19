@@ -13,8 +13,7 @@
 
 
 # Binary file to execute, relative to installation root
-run_exec="bin/netdedup"
+run_exec="bin/run.sh"
 
 # Arguments to use
-run_args="-c -p -v -t ${NTHREADS} -i media.dat -o output.dat.ddp"
-
+run_args="${NTHREADS} simmedium"
