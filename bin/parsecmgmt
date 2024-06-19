@@ -1220,6 +1220,9 @@ function run_benchmark {
   echo "${oprefix} Running '${cmd}':" | ${TEE} ${log}
   echo "${oprefix} [---------- Beginning of output ----------]" | ${TEE} ${log}
   (eval ${cmd} 2>&1) 2>&1 | ${TEE} ${bmrundir}/benchmark.out | ${TEE} ${log}
+  if grep -q "Killed" "${bmrundir}/benchmark.out"; then
+  exit 1
+  fi
   echo "${oprefix} [----------    End of output    ----------]" | ${TEE} ${log}
 
 
